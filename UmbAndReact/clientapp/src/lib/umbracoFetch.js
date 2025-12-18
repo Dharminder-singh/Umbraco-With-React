@@ -6,6 +6,13 @@ export async function getPage(handle) {
     });
     return convertToPage(res.body);
 }
+export async function getPagenav(handle) {
+const nav = await umbracoFetch({
+        method: 'GET',
+        path: `/content/item/${handle}`
+    });
+    return convertToPage(nav.body);
+}
  
 async function umbracoFetch(opts) {
     const options = {
@@ -17,7 +24,6 @@ async function umbracoFetch(opts) {
 
     const result = await fetch('/umbraco/delivery/api/v2' + opts.path, options);
     const body = await result.json();
-
     return {
         status: result.status,
         body
