@@ -92,7 +92,7 @@ function App() {
         <title>{pageData?.seo?.title}</title>
         <meta name="description" content={pageData?.seo?.description} />
         <div className='site-main'>
-          <Blocks blocks={pageData?.properties.contentBlocks?.items}></Blocks>
+          <Blocks blocks={pageData?.properties.contentBlocks?.items }></Blocks>
         </div>
 
       </>

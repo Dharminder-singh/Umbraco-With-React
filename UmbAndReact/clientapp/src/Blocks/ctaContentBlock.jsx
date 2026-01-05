@@ -1,11 +1,14 @@
 import { Link } from "react-router";
-function CtaContentBlock({ content }) {
+function CtaContentBlock({ content , setting }) {
+    if(setting?.hideFromWebsite == true) return null;
+    if(setting?.hideFromWebsite == true) return null;
+    const containerClass = setting?.componentsLayout;
     const link = content.link[0];
-    return <div id="cta-content-block">
+    return <section id="cta-content-block" className={containerClass}>
         <p className="big-text">{content.bigText}</p>
         {link && link.url && <p>
             <Link to={link.url} target={link.target} className="button">{link.title}</Link>
         </p>}
-    </div>
+    </section>
 }
 export default CtaContentBlock;

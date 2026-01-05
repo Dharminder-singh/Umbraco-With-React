@@ -2,14 +2,14 @@ import React from 'react'
 import CtaContentBlock from "./ctaContentBlock";
 import ImageContentBlock from "./imageContentBlock";
 import TextContentBlock from "./textContentBlock";
-
-
-function Split({ content }) {
+function Split({ content , setting}) {
+    if(setting?.hideFromWebsite == true) return null;
+    const containerClass = setting?.componentsLayout;
     const leftData = content.left.items
     const rightData = content.right.items
     return (
         <>
-            <section>
+            <section className={containerClass}>
                 <div className="container m-auto">
                     <div className='SpitSection grid grid-cols-2'>
                         <div className="left">
